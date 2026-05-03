@@ -242,9 +242,9 @@ results_nf = run_sweep(fee=0.0,  label="(fees=0.0)")
 results_f  = run_sweep(fee=0.01, label="(fees=0.01)")
 
 print(f"\n[4] Selecting Best Parameters from Each Sweepe:-")
-print(f"\n  Top 10 — No-Fee Sweep:")
+print(f"\n  Top 10 - No-Fee Sweep:")
 print(results_nf.nlargest(10, "Sharpe").to_string(index=False))
-print(f"\n  Top 10 — Fee Sweep (fees=0.01):")
+print(f"\n  Top 10 - Fee Sweep (fees=0.01):")
 print(results_f.nlargest(10, "Sharpe").to_string(index=False))
 
 best_L_nf, best_H_nf, best_W_nf, row_nf = parameters(
@@ -591,8 +591,8 @@ for col_idx, (res_df, best_L, best_H, best_W, best_row, lbl) in enumerate([
     plot_heatmap(
         hm_LH, axes[0][col_idx],
         f"{lbl}\nL vs H  [W={best_W} fixed]",
-        "H — Sell RSI threshold",
-        "L — Buy RSI threshold",
+        "H - Sell RSI threshold",
+        "L - Buy RSI threshold",
         plateau_cutoff=best_row["Plateau_Cutoff"],
         best_x=best_H,
         best_y=best_L
@@ -605,8 +605,8 @@ for col_idx, (res_df, best_L, best_H, best_W, best_row, lbl) in enumerate([
     plot_heatmap(
         hm_HW, axes[1][col_idx],
         f"H vs W  [L={best_L} fixed]",
-        "W — Volatility window",
-        "H — Sell RSI threshold",
+        "W - Volatility window",
+        "H - Sell RSI threshold",
         plateau_cutoff=best_row["Plateau_Cutoff"],
         best_x=best_W,
         best_y=best_H
